@@ -1,0 +1,45 @@
+---
+title: "ArtData"
+author: "Montgomery Inman"
+date: "2024-02-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidycensus)
+library(tidyverse)
+census_api_key("cd36f7847c5493e171a2196280eef73229ebac18", install = TRUE)
+
+ia <- get_acs(geography = "county", 
+              variables = c(medincome = "B19013_001"), 
+              state = "IA", 
+              year = 2022)
+
+v20 <- load_variables(2020, "acs5", cache = TRUE)
+
+View(v20)
+
+v = v20 %>% filter(geography == "county")
+```
+
+```{r}
+#Web developer, B24121_070
+
+####Artists, B24121_167
+####Detailed industry, B24134_232
+
+artists <- get_acs(geography = "us", 
+              variables = c(medincome = "B24121_167"), 
+              year = 2020)
+
+population <- get_acs(geography = "county", 
+              variables = c(population = "B01003_001"),
+              state = "ia",
+              year = 2022)
+
+```
+
