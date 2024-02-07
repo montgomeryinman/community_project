@@ -12,3 +12,27 @@ data <- read.csv(file_path)
 head(data)
 ```
 
+```{r}
+# these are the columns we want to use.
+# Delete multiple columns
+relevant_columns <- c("County.Name", "Fiscal.Year.Ending", "Public.Safety...Legal.Services", 
+                     "Physical.Health...Social.Services", "Mental.Health.MR..DD", 
+                     "County.Environment...Education", "Roads...Transportation", 
+                     "Government.Services.to.Residents", "Administration", 
+                     "Capital.Projects", "Total.Expenditures")
+
+subset_data <- data[relevant_columns]
+subset_data
+```
+
+```{r}
+# this is for saving the new csv to your computer! make your won file path!
+# Define the file path using file.path()
+# file_path <- file.path("C:", "Users", "ublak", "OneDrive", "Desktop", "ds401", "community_project", "subset_data.csv")
+
+# Save the dataframe as a CSV file
+write.table(subset_data, file = file_path, sep = ",", row.names = FALSE)
+
+# Print a message indicating the file has been saved
+cat("Data has been saved as subset_data.csv on your desktop.")
+```
