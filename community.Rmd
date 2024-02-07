@@ -1,0 +1,14 @@
+---
+title: "community_project"
+author: "Blake_Underwood"
+date: "2024-02-07"
+output: html_document
+---
+
+```{r}
+# add your ouw file path
+# file_path <- "C:/Users/ublak/OneDrive/Desktop/ds401/community_project/iowa.csv"
+data <- read.csv(file_path)
+head(data)
+```
+
